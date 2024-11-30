@@ -66,7 +66,7 @@ flowchart
     id10-->id12[/print: "press any key to continue."/]
     id11-->id12
     id9-->id12
-    id12-->id13[input: num]
+    id12-->id13[/input: num/]
     id13-->id14{num is '0'}
     id14--True-->id15[Set flag to false]
     id14--False-->id3
