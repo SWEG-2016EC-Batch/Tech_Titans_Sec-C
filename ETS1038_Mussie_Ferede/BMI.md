@@ -52,20 +52,25 @@ Step 4: End
 # Flowchart
 
 ``` mermaid
-flowchart
-id1([Start])-->id2[/input: Number of individuals/]
-id2-->id3{Counter < num}
-id3-->id4[/input: Weight/]
-id4-->id5[/input: Height/]
-id5-->id6["BMI=Weight/(Height*Height)"]
-id6-->id14[/Output: BMI/]
-id14-->id7{BMI<=18.5}
-id7--False--->id8{18.5 < BMI < 25}
-id8--False-->id9[Weight group = Over weight]
-id9--->id10[/Output: Weight group/]
-id7--True--->id11[Weight group = Under weight]
-id11--->id10
-id8--True---->id12[Weight group = Healthy weight]
-id12--->id10
-id10-->id13([End])
+flowchart TD
+    id1([Start]) --> id2[Set flag to true]
+    id2 --> id3{flag is true}
+    id3 --> id4[Ask the user to enter weight in kilograms]
+    id4 --> id5[Read weight]
+    id5 --> id6[Ask the user to enter height in meters]
+    id6 --> id7[Read height]
+    id7 --> id8[Calculate BMI using the formula: BMI = weight / (height * height)]
+    id8 --> id9{BMI < 18.5}
+    id9 -- True --> id10[Print "You are underweight"]
+    id9 -- False --> id11{BMI >= 18.5 and BMI <= 24.5}
+    id11 -- True --> id12[Print "You are normal weight"]
+    id11 -- False --> id13[Print "You are overweight"]
+    id10 --> id14[Ask the user: "If you don't want to continue press 0 otherwise press any key to continue."]
+    id12 --> id14
+    id13 --> id14
+    id14 --> id15[Read num]
+    id15 --> id16{num is '0'}
+    id16 -- True --> id17[Set flag to false]
+    id16 -- False --> id3
+    id17 --> id18([End])
 
