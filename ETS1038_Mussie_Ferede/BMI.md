@@ -1,10 +1,14 @@
-Problem Analysis
+## Problem Analysis
 
-Input:- Weight (in kilograms)
+## Input:
+
+- Weight (in kilograms)
 
 - Height (in meters)
-- 
-Process: Calculate BMI using the formula: BMI=w/h*h.
+
+## Process: 
+
+Calculate BMI using the formula: BMI=w/h*h.
 
 Determine the weight category based on BMI:
 
@@ -14,9 +18,11 @@ Normal weight: 18.5 ≤ BMI <= 24.5
 
 Overweight: BMI > 24
 
-Output: Weight category (underweight, normal weight, overweight)
+## Output: 
 
-Algorithm:
+Weight category (underweight, normal weight, overweight)
+
+## Algorithm:
 
 Step 1: Start
 
