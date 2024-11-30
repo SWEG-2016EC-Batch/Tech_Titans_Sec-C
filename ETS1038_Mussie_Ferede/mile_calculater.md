@@ -1,20 +1,22 @@
-Problem Analysis
+# Problem Analysis
 
-Input:
+## Input:
 
 •	Capacity of the fuel tank (in gallons)
 
 •	Miles per gallon (MPG) the automobile can be driven
 
-Process: Calculate the total number of miles the automobile can be driven without refueling using the formula:
+## Process:
+
+Calculate the total number of miles the automobile can be driven without refueling using the formula:
 
 Total Miles = Capacity * MPG
 
-Output:
+## Output:
 
 •	Total number of miles the automobile can be driven without refueling
 
-Algorithm:
+# Algorithm:
 
 Step 1: Start
 
