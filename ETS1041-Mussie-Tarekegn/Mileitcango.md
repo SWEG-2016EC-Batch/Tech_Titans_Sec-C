@@ -9,28 +9,38 @@ This program calculates how far an automobile can travel without refueling based
 ## Output:
 - Print the total distance the automobile can travel without refueling, expressed in miles.
 # Pseudocode
-Step 1: 
--
+### Step 1: 
 - Start
 
-Step 2: 
--
+### Step 2: 
 - Declare total_miles
 - Read fuel tank capacity in gallons (capacity_fuel_tank)
 - Read miles per gallon (mile_per_gallon)
 
-Step 3: 
--
+### Step 3: 
 
 - Calculate total miles the automobile can travel:
 
 -   total_miles = capacity_fuel_tank × mile_per_gallon
 
-Step 4: 
--
-
+### Step 4: 
 - Print "The number of miles the automobile can drive without refueling is: total_miles miles"
 
-Step 5: 
--
+### Step 5: 
 Stop
+# Flow Chart
+```mermaid
+flowchart TD
+    Start([Start]) 
+    --> InputTank[/"Enter the tank capacity (gallons):"/]
+    InputTank 
+    --> InputMilePerGallon[/"Enter the miles per gallon the automobile can drive:"/]
+    InputMilePerGallon 
+    --> ReadInput["Read the capacity of the tank and miles per gallon"]
+    ReadInput 
+    --> CalculateTotalMiles["Calculate total miles = tank capacity * miles per gallon"]
+    CalculateTotalMiles 
+    --> DisplayResult[/"Display: 'The number of miles the automobile can drive without refueling is: total miles'"/]
+    DisplayResult 
+    --> End([End])
+
