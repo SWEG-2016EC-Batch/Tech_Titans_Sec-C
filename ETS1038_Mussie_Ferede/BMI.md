@@ -59,7 +59,7 @@ flowchart TD
     id4 --> id5[Read weight]
     id5 --> id6[Ask the user to enter height in meters]
     id6 --> id7[Read height]
-    id7 --> id8[Calculate BMI using the formula: BMI = weight / (height * height)]
+    id7 --> id8[Calculate BMI using the formula: "BMI = weight / (height * height)"]
     id8 --> id9{BMI < 18.5}
     id9 -- True --> id10[Print "You are underweight"]
     id9 -- False --> id11{BMI >= 18.5 and BMI <= 24.5}
