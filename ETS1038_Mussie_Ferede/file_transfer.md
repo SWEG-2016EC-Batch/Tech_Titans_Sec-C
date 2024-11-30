@@ -22,9 +22,9 @@
 
 Step 1: Start
 
-Step 2: Set flag to 0.
+Step 2: Set run time.
 
-Step 3: Do While answer is not '0' or flag is 1.
+Step 3: Do While answer is not '0'.
 
 Step 3.1: Display the file size unit options and prompt the user to choose one.
 
@@ -49,4 +49,20 @@ step 3.10: Read answer
 Step 3.10.1: If answer is not = 0 go to step 3.
 
 Step 4: End
+# Flowchart
 
+``` mermaid
+flowchart 
+    id1([Start])-->id2[Set run time]
+    id2-->id3{Do While answer is not '0'}
+    id3-->id4[/input: choice/]         
+    id4-->id5[/input: size/]
+    id5-->id6[Convert size to bytes]
+    id6-->id7[run time = file size / 960]
+    id7-->id8[Convert run time to days, hours, minutes, and seconds]
+    id8-->id9[/output: run time/]
+    id9-->id10[/"Would you like to continue"/]
+    id10-->id11[/input: answer/]
+    id11-->id12{If answer is not = 0}
+    id12--True-->id3
+    id12--False-->id13([End])
