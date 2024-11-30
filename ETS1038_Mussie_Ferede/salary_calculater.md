@@ -75,8 +75,8 @@ flowchart
     id3-->id4[/input: working hour/]
     id4-->id5[/input: bonus rate/]
     id5-->id6[bonus payment = working hour * bonus rate * 4]
-    id6-->id7[pension = (base salary + bonus payment) * 0.05]
-    id7-->id8[tax = (base salary - pension) * 0.15]
+    id6-->id7[pension = base salary + bonus payment * 0.05]
+    id7-->id8[tax = base salary - pension * 0.15]
     id8-->id9[net salary = base salary - pension - tax + bonus payment]
     id9-->id10[/print: employee's name, bonus payment, pension deducted, tax deducted, gross salary, and net salary/]
     id10-->id11([End])
