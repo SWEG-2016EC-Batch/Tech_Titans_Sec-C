@@ -1,20 +1,20 @@
-Problem Analysis
+# Problem Analysis
 
-Input:
+## Input:
 
 •	A number (base) x
 
 •	An exponent y
 
-Process:
+## Process:
 
 1.	Calculate the power using the formula: power = x^y.
     
-Output:
+## Output:
 
 •	The result of raising the number x to the power y.
 
-Algorithm:
+# Algorithm:
 
 Step 1: Start
 
@@ -32,9 +32,6 @@ Step 7: Print power.
 
 Step 8: End
 
-# Flowchart
-
-``` mermaid
 # Flowchart
 
 ``` mermaid
