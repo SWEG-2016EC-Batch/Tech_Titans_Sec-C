@@ -42,7 +42,7 @@ Step 3:  While flag is true:
 		Print "You are normal weight"
 		o	Else:
 		Print "You are overweight"
-	Step 3.7: Prompt the user: "If you don't want to continue press 0 otherwise press any key to continue."
+	Step 3.7: Ask the user: "If you don't want to continue press 0 otherwise press any key to continue."
 	Step 3.8: Read num
 	Step 3.9: If num is '0':
 		o	Set flag to false
@@ -52,13 +52,12 @@ Step 4: End
 # Flowchart
 
 ``` mermaid
-flowchart 
+flowchart
 id1([Start])-->id2[/input: Number of individuals/]
 id2-->id3{Counter < num}
-
 id3-->id4[/input: Weight/]
 id4-->id5[/input: Height/]
-id5-->id6["BMI=Weight/(Height*Height)"] 
+id5-->id6["BMI=Weight/(Height*Height)"]
 id6-->id14[/Output: BMI/]
 id14-->id7{BMI<=18.5}
 id7--False--->id8{18.5 < BMI < 25}
@@ -69,3 +68,4 @@ id11--->id10
 id8--True---->id12[Weight group = Healthy weight]
 id12--->id10
 id10-->id13([End])
+
