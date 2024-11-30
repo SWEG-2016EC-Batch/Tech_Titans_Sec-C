@@ -55,18 +55,18 @@ Step 4: End
 flowchart 
     id1([Start])-->id2[Set flag to true]
     id2-->id3{flag is true}
-    id3-->id4[Read weight]
-    id4-->id5[Read height]
+    id3-->id4[/input: weight/]
+    id4-->id5[/input: height/]
     id5-->id6["BMI = weight / (height * height)"]
     id6-->id7{BMI < 18.5}
-    id7--True-->id10[Print "You are underweight"]
+    id7--True-->id10[/print: "You are underweight"/]
     id7--False-->id8{BMI >= 18.5 and BMI <= 24.5}
-    id8--True-->id11[Print "You are normal weight"]
-    id8--False-->id9[Print "You are overweight"]
-    id10-->id12[" press any key to continue."]
+    id8--True-->id11[/print: "You are normal weight"/]
+    id8--False-->id9[/print: "You are overweight"/]
+    id10-->id12[/print: "press any key to continue."/]
     id11-->id12
     id9-->id12
-    id12-->id13[Read num]
+    id12-->id13[input: num]
     id13-->id14{num is '0'}
     id14--True-->id15[Set flag to false]
     id14--False-->id3
