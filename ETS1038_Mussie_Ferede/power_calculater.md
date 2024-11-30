@@ -32,3 +32,15 @@ Step 7: Print power.
 
 Step 8: End
 
+# Flowchart
+
+``` mermaid
+# Flowchart
+
+``` mermaid
+flowchart 
+    id1([Start])-->id2[/input: x/]
+    id2-->id3[/input: y/]
+    id3-->id4[power = x^y]
+    id4-->id5[/Print: power/]
+    id5-->id6([End])
