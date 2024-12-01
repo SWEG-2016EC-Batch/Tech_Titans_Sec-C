@@ -72,3 +72,9 @@ flowchart
     id14--False-->id3
     id15-->id16([End])
 
+flowchart TD
+    id1([Start])-->id2[/Enter the capacity of the fuel tank in gallons/]
+    id2-->id3[/Enter the miles per gallon the automobile can be driven/]
+    id3-->id4[ totalDistance = tankCapacity * miles]
+    id4-->id5[/print: The automobile can be driven totalDistance miles without refueling/]
+    id5-->id6([End])
