@@ -52,23 +52,9 @@ Step 4: End
 # Flowchart
 
 ``` mermaid
-flowchart 
-    id1([Start])-->id2[Set flag to true]
-    id2-->id3{flag is true}
-    id3-->id4[/input: weight/]
-    id4-->id5[/input: height/]
-    id5-->id6["BMI = weight / (height * height)"]
-    id6-->id7{BMI < 18.5}
-    id7--True-->id10[/print: "You are underweight"/]
-    id7--False-->id8{BMI >= 18.5 and BMI <= 24.5}
-    id8--True-->id11[/print: "You are normal weight"/]
-    id8--False-->id9[/print: "You are overweight"/]
-    id10-->id12[/print: "press any key to continue."/]
-    id11-->id12
-    id9-->id12
-    id12-->id13[/input: num/]
-    id13-->id14{num is '0'}
-    id14--True-->id15[Set flag to false]
-    id14--False-->id3
-    id15-->id16([End])
-
+flowchart TD
+    id1([Start])-->id2[/Enter the capacity of the fuel tank in gallons/]
+    id2-->id3[/Enter the miles per gallon the automobile can be driven/]
+    id3-->id4[ totalDistance = tankCapacity * miles]
+    id4-->id5[/print: The automobile can be driven totalDistance miles without refueling/]
+    id5-->id6([End])
