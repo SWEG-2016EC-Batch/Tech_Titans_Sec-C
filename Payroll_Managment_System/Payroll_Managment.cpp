@@ -219,8 +219,8 @@ int main() {
 
                 if (counter1==0) min_payment_manager = 0;
                 if( counter2==0) min_payment_hourly = 0;
-				if( counter3==0) min_payment_commission = 0;
-				if( counter4==0) min_payment_pieceworker = 0;
+		if( counter3==0) min_payment_commission = 0;
+		if( counter4==0) min_payment_pieceworker = 0;
                 break;
 	
             case 3:
@@ -249,7 +249,16 @@ int main() {
 	}
 		break;
 	    case 4:
-		    
+		cout<<"\n*********************** Employee Weeklypay **************************\n";
+		cout << string(65, '-') << "\n";
+		cout<<left<<setw(20)<<"Name"<<setw(10)<<"Gender"<<setw(25)<<"Employment type"<<setw(20)<<"Weeklypay"<<endl;
+		cout << string(65, '-') << "\n";
+		for(int i=0;i<num;i++){	
+				cout << left << setw(20) << Name[i]
+                     << setw(10) << Gender[i]
+                     << setw(25) << Employee[i]
+                     << fixed <<setprecision(2)<<setw(20)<< Weekly_pay[i] << "\n";
+		}    
 		break;
             case 5:
         // Summary report
