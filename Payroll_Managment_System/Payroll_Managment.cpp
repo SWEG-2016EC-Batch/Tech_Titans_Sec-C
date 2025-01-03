@@ -163,7 +163,66 @@ int main() {
                         continue;
                     }
                 }
+                break; 
+            case 2:
+                // Remove an employee
+                cout << "Enter the name of the employee you want to remove: ";
+                cin.ignore();
+                getline(cin, name);
+                for (int i = 0; i < num; i++) {
+                    if (name == Name[i]) {
+                        // Update minimum payment values if necessary
+                        if (Employee[i] == "Manager") {
+                            for (int k = 0; k < num; k++) {
+                                if (k == i){
+                                    continue;}
+                                else if (Employee[k] == "Manager") min_payment_manager = Weekly_pay[k];
+                            }
+                        } else if (Employee[i] == "Hourly") {
+                            for (int k = 0; k < num; k++) {
+                                if (k == i)
+                                    continue;
+                                else if (Employee[k] == "Hourly") min_payment_hourly = Weekly_pay[k];                                 
+                            }
+                        } else if (Employee[i] == "Commission") {
+                            for (int k = 0; k < num; k++) {
+                                if (k == i)
+                                    continue;
+                                else if (Employee[k] == "Commission") min_payment_commission = Weekly_pay[k];                                    
+                            }
+                        } else if (Employee[i] == "Pieceworker") {
+                            for (int k = 0; k < num; k++) {
+                                if (k == i)
+                                    continue;
+                                else if (Employee[k] == "Pieceworker") min_payment_pieceworker = Weekly_pay[k];                                    
+                            }
+                        }
+                        for (int j = i; j < num; j++) {
+                            Name[j] = Name[j + 1];
+                            Gender[j] = Gender[j + 1];
+                            Employee[j] = Employee[j + 1];
+                            Weekly_pay[j] = Weekly_pay[j + 1];
+                        }
+                        num--;
+                        flag = 1;
+                    }
+                }
+                for(int i=0;i<num;i++){
+                	 if(Employee[i]== "Manager") counter1++;	
+					 if(Employee[i]== "Hourly") counter2++;
+					 if(Employee[i]== "Commission") counter3++;
+					 if(Employee[i]== "Pieceworker") counter4++;
+				}
+                cout << "Employee removed successfully!" << endl;
+                if (flag == 0)
+                    cout << "\nSorry, but there is no employee with the specified name. \n";
+
+                if (counter1==0) min_payment_manager = 0;
+                if( counter2==0) min_payment_hourly = 0;
+				if( counter3==0) min_payment_commission = 0;
+				if( counter4==0) min_payment_pieceworker = 0;
                 break;
+	
             case 3:
 		// Search for an employee
 
