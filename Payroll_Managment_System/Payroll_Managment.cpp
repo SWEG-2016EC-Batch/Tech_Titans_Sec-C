@@ -5,7 +5,24 @@
 #include <iomanip>
 using namespace std;
 
-int main() {
+int main() { 
+    // Variables for user input and employee details
+    int gender, employee_type, num = 0;
+    string Name[100];
+    string Gender[100];
+    string Employee[100];
+    int Weekly_pay[100];
+    string name;
+    
+    bool flag;
+    char x;
+
+    // Display the program title
+    cout << setw(20) << "*" << string(48, '*') << "*" << endl;
+    cout << setw(20) << "*" << string(48, ' ') << "*" << endl;
+    cout << setw(20) << "*" << string(15, ' ') << "Payroll Management" << string(16, ' ') << "*" << endl;
+    cout << setw(20) << "*" << string(48, ' ') << "*" << endl;
+    cout << setw(20) << "*" << string(48, '*') << "*" << endl;
     do {
         // Variables for tracking the summary report
         int total_workers = 0;
@@ -28,9 +45,34 @@ int main() {
             cin.clear(); cin.ignore();
             cout << "Enter number only" << endl;
             goto a;
-        }
+        } 
 
         switch (choice) {
+            case 3:
+		// Search for an employee
+
+		cout<<"Enter the name of the employee: ";
+		cin.ignore();
+		getline(cin, name);
+		for(int i=0;i<num;i++){
+		if(name == Name[i]){
+			cout<<"\n*********************** Employee Record **************************\n";
+			cout << string(65, '-') << "\n";
+			cout<<left<<setw(20)<<"Name"<<setw(10)<<"Gender"<<setw(25)<<"Employment type"<<setw(20)<<"Weeklypay"<<endl;
+			cout << string(65, '-') << "\n";
+				cout << left << setw(20) << Name[i]
+                     << setw(10) << Gender[i]
+                     << setw(25) << Employee[i]
+                     << fixed <<setprecision(2)<<setw(20)<< Weekly_pay[i] << "\n";
+			flag=1;
+			break;
+		}
+
+	}
+	if(flag==0){
+		cout<<"\nSorry, but there is no employee with the specified name. \n";
+	}
+		break;
             case 4:
         // Summary report
         cout << "\n******** Summary Report ********\n" << endl;
@@ -72,7 +114,17 @@ int main() {
         break;
         
           
-        }
+        } 
+    case 5:
+        // Exit the program
+        cout << "Thank You!";
+        return 0;
+
+    default:
+        // Handle invalid input
+        cout << "Enter a proper input!" << endl;
+        goto a;
+    }
     // Ask if the user wants to continue
     cout << "Do you want to continue? Y/N\n";
     cin >> x;          
