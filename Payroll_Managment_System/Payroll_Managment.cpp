@@ -38,7 +38,7 @@ int main() {
 
         // Display menu options
         a:
-        cout << "1. Add employee. \n2. Remove employee. \n3. Search for an employee.\n4. Summary report \n5. Exit" << endl;
+        cout << "1. Add employee. \n2. Remove employee. \n3. Search for an employee.\n4. Display the weekly pays of the employees\n5. Summary report \n6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
         if (cin.fail()) {
@@ -73,7 +73,10 @@ int main() {
 		cout<<"\nSorry, but there is no employee with the specified name. \n";
 	}
 		break;
-            case 4:
+	    case 4:
+		    
+		break;
+            case 5:
         // Summary report
         cout << "\n******** Summary Report ********\n" << endl;
 
@@ -115,7 +118,7 @@ int main() {
         
           
         } 
-    case 5:
+    case 6:
         // Exit the program
         cout << "Thank You!";
         return 0;
