@@ -48,6 +48,122 @@ int main() {
         } 
 
         switch (choice) {
+	    case 1:
+                // Add employees
+                b:
+                cout << "Please enter the number of employees you want to add: ";
+                cin >> n;
+                if (cin.fail() || n < 0) {
+                    cin.clear(); cin.ignore();
+                    cout << "Enter number only" << endl;
+                    goto b;
+                }
+                num += n;
+                cout << "\nPlease enter their details:\n";
+                for (int i = num - n; i < num; i++) {
+                    cout << "Enter the name of the employee: ";
+                    cin.ignore();
+                    getline(cin, Name[i]);
+                    i:
+                    cout << "Enter gender: \n1. Male\n2. Female" << endl;
+                    cin >> gender;
+                    if (cin.fail() || gender < 1 || gender > 2) {
+                        cin.clear(); cin.ignore();
+                        cout << "Enter proper input!" << endl;
+                        goto i;
+                    }
+                    if (gender == 1)
+                        Gender[i] = "Male";
+                    else
+                        Gender[i] = "Female";
+                    j:
+                    cout << "Enter employment type: \n1. Manager\n2. Hourly worker\n3. Commission worker\n4. Piece worker" << endl;
+                    cin >> employee_type;
+                    if (cin.fail() || employee_type < 1 || employee_type > 4) {
+                        cin.clear(); cin.ignore();
+                        cout << "Enter proper input" << endl;
+                        goto j;
+                    }
+
+                    if (employee_type == 1) {
+                        double fixedSalary;
+                        Employee[i] = "Manager";
+                        c:
+                        cout << "Enter fixed weekly salary: ";
+                        cin >> fixedSalary;
+                        if (cin.fail() || fixedSalary < 0) {
+                            cin.clear(); cin.ignore();
+                            cout << "Enter number only" << endl;
+                            goto c;
+                        }
+                        Weekly_pay[i] = min_payment_manager = fixedSalary;
+                        cout << "Employee record added successfully!\n";
+                    } else if (employee_type == 2) {
+                        double hourlyWage, hoursWorked;
+                        Employee[i] = "Hourly";
+                        d:
+                        cout << "Enter hourly wage: ";
+                        cin >> hourlyWage;
+                        if (cin.fail() || hourlyWage < 0) {
+                            cin.clear(); cin.ignore();
+                            cout << "Enter number only" << endl;
+                            goto d;
+                        }
+                        e:
+                        cout << "Enter hours worked: ";
+                        cin >> hoursWorked;
+                        if (cin.fail() || hoursWorked < 0) {
+                            cin.clear(); cin.ignore();
+                            cout << "Enter number only" << endl;
+                            goto e;
+                        }
+
+                        if (hoursWorked <= 40) {
+                            Weekly_pay[i] = min_payment_hourly = hourlyWage * hoursWorked;
+                        } else {
+                            Weekly_pay[i] = min_payment_hourly = (hourlyWage * 40) + (hourlyWage * 1.5 * (hoursWorked - 40));
+                        }
+                        cout << "Employee record added successfully!\n";
+                    } else if (employee_type == 3) {
+                        double weeklySales;
+                        Employee[i] = "Commission";
+                        f:
+                        cout << "Enter gross weekly sales: ";
+                        cin >> weeklySales;
+                        if (cin.fail() || weeklySales < 0) {
+                            cin.clear(); cin.ignore();
+                            cout << "Enter number only" << endl;
+                            goto f;
+                        }
+                        Weekly_pay[i] = min_payment_commission = 250 + (0.057 * weeklySales);
+                        cout << "Employee record added successfully!\n";
+                    } else if (employee_type == 4) {
+                        double itemsProduced, payPerItem;
+                        Employee[i] = "Pieceworker";
+                        g:
+                        cout << "Enter number of items produced: ";
+                        cin >> itemsProduced;
+                        if (cin.fail() || itemsProduced < 0) {
+                            cin.clear(); cin.ignore();
+                            cout << "Enter number only" << endl;
+                            goto g;
+                        }
+                        h:
+                        cout << "Enter payment per item: ";
+                        cin >> payPerItem;
+                        if (cin.fail() || payPerItem < 0) {
+                            cin.clear(); cin.ignore();
+                            cout << "Enter number only" << endl;
+                            goto h;
+                        }
+                        Weekly_pay[i] = min_payment_pieceworker = itemsProduced * payPerItem;
+                        cout << "Employee record added successfully!\n";
+                    } else {
+                        cout << "Invalid employment type. Record not added.\n";
+                        continue;
+                    }
+                }
+                break;
             case 3:
 		// Search for an employee
 
