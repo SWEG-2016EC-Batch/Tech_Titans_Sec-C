@@ -254,10 +254,10 @@ int main() {
 		cout<<left<<setw(20)<<"Name"<<setw(10)<<"Gender"<<setw(25)<<"Employment type"<<setw(20)<<"Weeklypay"<<endl;
 		cout << string(65, '-') << "\n";
 		for(int i=0;i<num;i++){	
-				cout << left << setw(20) << Name[i]
-                     << setw(10) << Gender[i]
-                     << setw(25) << Employee[i]
-                     << fixed <<setprecision(2)<<setw(20)<< Weekly_pay[i] << "\n";
+			cout << left << setw(20) << Name[i]
+                     		     << setw(10) << Gender[i]
+                                     << setw(25) << Employee[i]
+                     		     << fixed <<setprecision(2)<<setw(20)<< Weekly_pay[i] << "\n";
 		}    
 		break;
             case 5:
