@@ -31,6 +31,46 @@ int main() {
         }
 
         switch (choice) {
+            case 4:
+        // Summary report
+        cout << "\n******** Summary Report ********\n" << endl;
+
+        // Calculate the total number of workers and total payment
+        for (int i = 0; i < num; i++) {
+            total_workers++;
+            total_payment += Weekly_pay[i];
+
+            // Calculate minimum and maximum payments for each category
+            if (Employee[i] == "Manager") {
+              min_payment_manager = min(min_payment_manager, Weekly_pay[i]);
+              max_payment_manager = max(max_payment_manager, Weekly_pay[i]);
+
+            } else if (Employee[i] == "Hourly") {
+                min_payment_hourly = min(min_payment_hourly, Weekly_pay[i]);
+                max_payment_hourly = max(max_payment_hourly, Weekly_pay[i]);
+
+            } else if (Employee[i] == "Commission") {
+                min_payment_commission = min(min_payment_commission, Weekly_pay[i]);
+                max_payment_commission = max(max_payment_commission, Weekly_pay[i]);
+
+            } else if (Employee[i] == "Pieceworker") {
+                min_payment_pieceworker = min(min_payment_pieceworker, Weekly_pay[i]);
+                max_payment_pieceworker = max(max_payment_pieceworker, Weekly_pay[i]);
+            }
+        }
+
+
+        // Display the summary report
+        cout << "Total number of workers: " << total_workers << endl;
+        cout << "Total payment: " << total_payment << endl;
+        cout << "Minimum and Maximum Payments by Category:\n";
+        cout << "Manager: Min = " << min_payment_manager << ", Max = " << max_payment_manager << endl;
+        cout << "Hourly: Min = " << min_payment_hourly << ", Max = " << max_payment_hourly << endl;
+        cout << "Commission: Min = " << min_payment_commission << ", Max = " << max_payment_commission << endl;
+        cout << "Pieceworker: Min = " << min_payment_pieceworker << ", Max = " << max_payment_pieceworker << endl;
+        
+        break;
+        
           
         }
     // Ask if the user wants to continue
