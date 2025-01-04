@@ -166,6 +166,10 @@ int main() {
                 break; 
             case 2:
                 // Remove an employee
+		if(num==0){
+			cout<<"There is no employee record to update!\n"<<endl;
+			goto a;
+		}
                 cout << "Enter the name of the employee you want to remove: ";
                 cin.ignore();
                 getline(cin, name);
@@ -225,7 +229,10 @@ int main() {
 	
             case 3:
 		// Search for an employee
-
+		if(num==0){
+			cout<<"There is no employee record to update!\n"<<endl;
+			goto a;
+		}
 		cout<<"Enter the name of the employee: ";
 		cin.ignore();
 		getline(cin, name);
@@ -249,6 +256,10 @@ int main() {
 	}
 		break;
 	    case 4:
+		if(num==0){
+			cout<<"There is no employee record to update!\n"<<endl;
+			goto a;
+		}
 		cout<<"\n*********************** Employee Weeklypay **************************\n";
 		cout << string(65, '-') << "\n";
 		cout<<left<<setw(20)<<"Name"<<setw(10)<<"Gender"<<setw(25)<<"Employment type"<<setw(20)<<"Weeklypay"<<endl;
@@ -262,6 +273,10 @@ int main() {
 		break;
             case 5:
         // Summary report
+	if(num==0){
+		cout<<"There is no employee record to update!\n"<<endl;
+		goto a;
+	}
         cout << "\n******** Summary Report ********\n" << endl;
 
         // Calculate the total number of workers and total payment
