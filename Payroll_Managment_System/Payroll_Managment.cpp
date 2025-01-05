@@ -87,6 +87,7 @@ int main() {
                         cin.clear();
 			while(cin.get() != '\n');
                         cout << "Enter proper input" << endl;
+			// return to j
                         goto j;
                     }
 
