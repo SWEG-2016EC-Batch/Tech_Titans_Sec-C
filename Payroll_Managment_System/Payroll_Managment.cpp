@@ -46,7 +46,7 @@ int main() {
             cout << "Enter number only" << endl;
             goto a;
         } 
-
+        // Switch-case to handle user menu choices
         switch (choice) {
 	    case 1:
                 // Add employees
