@@ -187,34 +187,37 @@ int main() {
 		
           // Take the full name input from the user
                 getline(cin, name);
+		    // Iterate through the list of employees
                 for (int i = 0; i < num; i++) {
+			// Check if the input name matches the current employee's name
                     if (name == Name[i]) {
                         // Update minimum payment values if necessary
                         if (Employee[i] == "Manager") {
                             for (int k = 0; k < num; k++) {
                                 if (k == i){
-                                    continue;}
+                                    continue;} // Skip the employee being removed
                                 else if (Employee[k] == "Manager") min_payment_manager = Weekly_pay[k];
                             }
                         } else if (Employee[i] == "Hourly") {
                             for (int k = 0; k < num; k++) {
                                 if (k == i)
-                                    continue;
+                                    continue;   // Skip the employee being removed
                                 else if (Employee[k] == "Hourly") min_payment_hourly = Weekly_pay[k];                                 
                             }
                         } else if (Employee[i] == "Commission") {
                             for (int k = 0; k < num; k++) {
                                 if (k == i)
-                                    continue;
+                                    continue; // Skip the employee being removed
                                 else if (Employee[k] == "Commission") min_payment_commission = Weekly_pay[k];                                    
                             }
                         } else if (Employee[i] == "Pieceworker") {
                             for (int k = 0; k < num; k++) {
                                 if (k == i)
-                                    continue;
+                                    continue;  // Skip the employee being removed
                                 else if (Employee[k] == "Pieceworker") min_payment_pieceworker = Weekly_pay[k];                                    
                             }
                         }
+			    // Shift the arrays to remove the employee
                         for (int j = i; j < num; j++) {
                             Name[j] = Name[j + 1];
                             Gender[j] = Gender[j + 1];
@@ -222,18 +225,23 @@ int main() {
                             Weekly_pay[j] = Weekly_pay[j + 1];
                         }
                         num--;
-                        flag = 1;
+                        flag = 1;  // Set flag to indicate successful removal
 			cout << "Employee removed successfully!" << endl;
                     }
                 }
+		     // Count remaining employees by type
                 for(int i=0;i<num;i++){
                 	 if(Employee[i]== "Manager") counter1++;	
 			 if(Employee[i]== "Hourly") counter2++;
 			 if(Employee[i]== "Commission") counter3++;
 			 if(Employee[i]== "Pieceworker") counter4++;
 				}
-                
-                if (flag == 0) cout << "\nSorry, but there is no employee with the specified name. \n";
+                 // If no matching employee was found
+                if (flag == 0)
+			cout << "\nSorry, but there is no employee with the specified name. \n";
+		    
+		        // Reset minimum payment values to 0 if no employees of a type remain
+
                 if (counter1==0) min_payment_manager = 0;
                 if( counter2==0) min_payment_hourly = 0;
 		if( counter3==0) min_payment_commission = 0;
