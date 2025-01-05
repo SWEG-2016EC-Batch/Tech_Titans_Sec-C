@@ -20,7 +20,7 @@ int main() {
     // Display the program title
     cout << setw(20) << "*" << string(48, '*') << "*" << endl;
     cout << setw(20) << "*" << string(48, ' ') << "*" << endl;
-    cout << setw(20) << "*" << string(15, ' ') << "Payroll Management" << string(16, ' ') << "*" << endl;
+    cout << setw(20) << "*" << string(15, ' ') << "Payroll Management" << string(15, ' ') << "*" << endl;
     cout << setw(20) << "*" << string(48, ' ') << "*" << endl;
     cout << setw(20) << "*" << string(48, '*') << "*" << endl;
     do {
@@ -34,15 +34,14 @@ int main() {
 
         int n, choice, counter1 =0, counter2 =0, counter3 =0, counter4 =0;
         flag = 0;
-        
-
         // Display menu options
         a:
         cout << "1. Add employee. \n2. Remove employee. \n3. Search for an employee.\n4. Display the weekly pays of the employees\n5. Summary report \n6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
-        if (cin.fail()) {
-            cin.clear(); cin.ignore();
+        if (cin.fail() || choice < 0) {
+            cin.clear();
+	    while(cin.get() != '\n');
             cout << "Enter number only" << endl;
             goto a;
         } 
@@ -54,8 +53,9 @@ int main() {
                 cout << "Please enter the number of employees you want to add: ";
                 cin >> n;
                 if (cin.fail() || n < 0) {
-                    cin.clear(); cin.ignore();
-                    cout << "Enter number only" << endl;
+                    cin.clear();
+		    while(cin.get() != '\n');
+                    cout << "Invalid input! Please enter a positive number only" << endl;
                     goto b;
                 }
                 num += n;
@@ -68,7 +68,8 @@ int main() {
                     cout << "Enter gender: \n1. Male\n2. Female" << endl;
                     cin >> gender;
                     if (cin.fail() || gender < 1 || gender > 2) {
-                        cin.clear(); cin.ignore();
+                        cin.clear(); 
+			while(cin.get() != '\n');
                         cout << "Enter proper input!" << endl;
                         goto i;
                     }
@@ -80,7 +81,8 @@ int main() {
                     cout << "Enter employment type: \n1. Manager\n2. Hourly worker\n3. Commission worker\n4. Piece worker" << endl;
                     cin >> employee_type;
                     if (cin.fail() || employee_type < 1 || employee_type > 4) {
-                        cin.clear(); cin.ignore();
+                        cin.clear();
+			while(cin.get() != '\n');
                         cout << "Enter proper input" << endl;
                         goto j;
                     }
@@ -92,7 +94,8 @@ int main() {
                         cout << "Enter fixed weekly salary: ";
                         cin >> fixedSalary;
                         if (cin.fail() || fixedSalary < 0) {
-                            cin.clear(); cin.ignore();
+                            cin.clear();
+			    while(cin.get() != '\n');
                             cout << "Enter number only" << endl;
                             goto c;
                         }
@@ -105,7 +108,8 @@ int main() {
                         cout << "Enter hourly wage: ";
                         cin >> hourlyWage;
                         if (cin.fail() || hourlyWage < 0) {
-                            cin.clear(); cin.ignore();
+                            cin.clear();
+			    while(cin.get() != '\n');
                             cout << "Enter number only" << endl;
                             goto d;
                         }
@@ -113,7 +117,8 @@ int main() {
                         cout << "Enter hours worked: ";
                         cin >> hoursWorked;
                         if (cin.fail() || hoursWorked < 0) {
-                            cin.clear(); cin.ignore();
+                            cin.clear();
+			    while(cin.get() != '\n');
                             cout << "Enter number only" << endl;
                             goto e;
                         }
@@ -131,7 +136,8 @@ int main() {
                         cout << "Enter gross weekly sales: ";
                         cin >> weeklySales;
                         if (cin.fail() || weeklySales < 0) {
-                            cin.clear(); cin.ignore();
+                            cin.clear();
+			    while(cin.get() != '\n');
                             cout << "Enter number only" << endl;
                             goto f;
                         }
@@ -144,7 +150,8 @@ int main() {
                         cout << "Enter number of items produced: ";
                         cin >> itemsProduced;
                         if (cin.fail() || itemsProduced < 0) {
-                            cin.clear(); cin.ignore();
+                            cin.clear();
+			    while(cin.get() != '\n');
                             cout << "Enter number only" << endl;
                             goto g;
                         }
@@ -152,7 +159,8 @@ int main() {
                         cout << "Enter payment per item: ";
                         cin >> payPerItem;
                         if (cin.fail() || payPerItem < 0) {
-                            cin.clear(); cin.ignore();
+                            cin.clear();
+			    while(cin.get() != '\n');
                             cout << "Enter number only" << endl;
                             goto h;
                         }
@@ -167,7 +175,7 @@ int main() {
             case 2:
                 // Remove an employee
 		if(num==0){
-			cout<<"There is no employee record to update!\n"<<endl;
+			cout<<"There is no employee record to remove!\n"<<endl;
 			goto a;
 		}
                 cout << "Enter the name of the employee you want to remove: ";
@@ -209,18 +217,17 @@ int main() {
                         }
                         num--;
                         flag = 1;
+			cout << "Employee removed successfully!" << endl;
                     }
                 }
                 for(int i=0;i<num;i++){
                 	 if(Employee[i]== "Manager") counter1++;	
-					 if(Employee[i]== "Hourly") counter2++;
-					 if(Employee[i]== "Commission") counter3++;
-					 if(Employee[i]== "Pieceworker") counter4++;
+			 if(Employee[i]== "Hourly") counter2++;
+			 if(Employee[i]== "Commission") counter3++;
+			 if(Employee[i]== "Pieceworker") counter4++;
 				}
-                cout << "Employee removed successfully!" << endl;
-                if (flag == 0)
-                    cout << "\nSorry, but there is no employee with the specified name. \n";
-
+                
+                if (flag == 0) cout << "\nSorry, but there is no employee with the specified name. \n";
                 if (counter1==0) min_payment_manager = 0;
                 if( counter2==0) min_payment_hourly = 0;
 		if( counter3==0) min_payment_commission = 0;
@@ -230,7 +237,7 @@ int main() {
             case 3:
 		// Search for an employee
 		if(num==0){
-			cout<<"There is no employee record to update!\n"<<endl;
+			cout<<"There is no employee record to search!\n"<<endl;
 			goto a;
 		}
 		cout<<"Enter the name of the employee: ";
@@ -256,8 +263,9 @@ int main() {
 	}
 		break;
 	    case 4:
+		// Display employee record    
 		if(num==0){
-			cout<<"There is no employee record to update!\n"<<endl;
+			cout<<"There is no employee record to display!\n"<<endl;
 			goto a;
 		}
 		cout<<"\n*********************** Employee Weeklypay **************************\n";
@@ -271,10 +279,10 @@ int main() {
                      		     << fixed <<setprecision(2)<<setw(20)<< Weekly_pay[i] << "\n";
 		}    
 		break;
-            case 5:
+        case 5:
         // Summary report
 	if(num==0){
-		cout<<"There is no employee record to update!\n"<<endl;
+		cout<<"There is no employee record to calculate the summary report!\n"<<endl;
 		goto a;
 	}
         cout << "\n******** Summary Report ********\n" << endl;
@@ -301,9 +309,7 @@ int main() {
                 min_payment_pieceworker = min(min_payment_pieceworker, Weekly_pay[i]);
                 max_payment_pieceworker = max(max_payment_pieceworker, Weekly_pay[i]);
             }
-        }
-
-
+	}
         // Display the summary report
         cout << "Total number of workers: " << total_workers << endl;
         cout << "Total payment: " << total_payment << endl;
@@ -311,12 +317,8 @@ int main() {
         cout << "Manager: Min = " << min_payment_manager << ", Max = " << max_payment_manager << endl;
         cout << "Hourly: Min = " << min_payment_hourly << ", Max = " << max_payment_hourly << endl;
         cout << "Commission: Min = " << min_payment_commission << ", Max = " << max_payment_commission << endl;
-        cout << "Pieceworker: Min = " << min_payment_pieceworker << ", Max = " << max_payment_pieceworker << endl;
-        
-        break;
-        
-          
-        } 
+        cout << "Pieceworker: Min = " << min_payment_pieceworker << ", Max = " << max_payment_pieceworker << endl;    
+        break;       
     case 6:
         // Exit the program
         cout << "Thank You!";
@@ -324,13 +326,12 @@ int main() {
 
     default:
         // Handle invalid input
-        cout << "Enter a proper input!" << endl;
+        cout << "Enter a number between 1 and 6!" << endl;
         goto a;
     }
     // Ask if the user wants to continue
     cout << "Do you want to continue? Y/N\n";
     cin >> x;          
 } while (x == 'Y' || x == 'y');  // Loop to continue or exit
-
     return 0;  // End the program
 }
