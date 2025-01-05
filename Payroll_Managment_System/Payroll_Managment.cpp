@@ -58,6 +58,7 @@ int main() {
                     cin.clear();
 		    while(cin.get() != '\n');
                     cout << "Invalid input! Please enter a positive number only" << endl;
+		    // return to b
                     goto b;
                 }
                 num += n;
