@@ -44,6 +44,7 @@ int main() {
             cin.clear();
 	    while(cin.get() != '\n');
             cout << "Enter number only" << endl;
+	    // return to a
             goto a;
         } 
         // Switch-case to handle user menu choices
