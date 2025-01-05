@@ -234,35 +234,54 @@ int main() {
 		if( counter3==0) min_payment_commission = 0;
 		if( counter4==0) min_payment_pieceworker = 0;
                 break;
-	
-            case 3:
-		// Search for an employee
-		if(num==0){
-			cout<<"There is no employee record to search!\n"<<endl;
-			goto a;
-		}
-		cout<<"Enter the name of the employee: ";
-		cin.ignore();
-		getline(cin, name);
-		for(int i=0;i<num;i++){
-		if(name == Name[i]){
-			cout<<"\n*********************** Employee Record **************************\n";
-			cout << string(65, '-') << "\n";
-			cout<<left<<setw(20)<<"Name"<<setw(10)<<"Gender"<<setw(25)<<"Employment type"<<setw(20)<<"Weeklypay"<<endl;
-			cout << string(65, '-') << "\n";
-				cout << left << setw(20) << Name[i]
-                     << setw(10) << Gender[i]
-                     << setw(25) << Employee[i]
-                     << fixed <<setprecision(2)<<setw(20)<< Weekly_pay[i] << "\n";
-			flag=1;
-			break;
-		}
+	case 3:
+    // Search for an employee
+    cout << "Enter the name of the employee: ";
+    
+    // Clear the input buffer to avoid issues with getline
+    cin.ignore();
+    
+    // Take the full name input from the user
+    getline(cin, name);
+    
+    // Loop through the employee records to find a match
+    for (int i = 0; i < num; i++) {
+        // Check if the input name matches the name in the records
+        if (name == Name[i]) {
+            // If a match is found, display the employee record
+            cout << "\n*********************** Employee Record **************************\n";
+            
+            // Print a separator line for better formatting
+            cout << string(65, '-') << "\n";
+            
+            // Print the header for employee details
+            cout << left << setw(20) << "Name"
+                 << setw(10) << "Gender"
+                 << setw(25) << "Employment type"
+                 << setw(20) << "Weekly pay" << endl;
+            
+            // Print another separator line for better readability
+            cout << string(65, '-') << "\n";
+            
+            // Print the specific employee's details
+            cout << left << setw(20) << Name[i]
+                 << setw(10) << Gender[i]
+                 << setw(25) << Employee[i]
+                 << fixed << setprecision(2) << setw(20) << Weekly_pay[i] << "\n";
+            
+            // Set the flag to indicate the employee was found
+            flag = 1;
+            break; 
+        }
+    }
+    
+    // If no employee with the specified name was found, show an appropriate message
+    if (flag == 0) {
+        cout << "\nSorry, but there is no employee with the specified name. \n";
+    }
+    break;
 
-	}
-	if(flag==0){
-		cout<<"\nSorry, but there is no employee with the specified name. \n";
-	}
-		break;
+
 	    case 4:
 		// Display employee record    
 		if(num==0){
