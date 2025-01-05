@@ -181,6 +181,8 @@ int main() {
 		}
                 cout << "Enter the name of the employee you want to remove: ";
                 cin.ignore();
+		
+          // Take the full name input from the user
                 getline(cin, name);
                 for (int i = 0; i < num; i++) {
                     if (name == Name[i]) {
