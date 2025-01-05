@@ -39,6 +39,7 @@ int main() {
         cout << "1. Add employee. \n2. Remove employee. \n3. Search for an employee.\n4. Display the weekly pays of the employees\n5. Summary report \n6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
+	// Validate input for choice
         if (cin.fail() || choice < 0) {
             cin.clear();
 	    while(cin.get() != '\n');
